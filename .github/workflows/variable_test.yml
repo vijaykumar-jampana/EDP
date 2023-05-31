@@ -1,1 +1,15 @@
+name: variable_test
 
+on:
+  workflow_dispatch:
+
+jobs:
+  dev-environments:
+    runs-on: ubuntu-latest
+    environment:
+      name: Dev
+    steps:
+      - name: Dev env variables
+        run: |
+          echo "Env_name: ${{vars.ENV_NAME}}"
+          echo "Org_Name: ${{vars.ORG_NAME}}"
