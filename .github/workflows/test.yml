@@ -18,4 +18,4 @@ jobs:
 
       - name: Copy Code to Target Location
         run: |
-          cp -r DBS/** EDP_UAT/DBS
+          cp -r DBS/** EDP_UAT
