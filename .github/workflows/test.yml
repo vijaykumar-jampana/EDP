@@ -18,4 +18,4 @@ jobs:
 
       - name: Copy Code to Target Location
         run: |
-          cp -r DBS/** EDP_UAT
+          cp -r DBS/** vijaykumar-jampana/EDP_UAT
