@@ -1,11 +1,15 @@
 name: Copy Code from Source Repository
 
+# on:
+#   workflow_run:
+#     workflows:
+#       - "Copy Code to Target Repository"
+#     types:
+#       - completed
 on:
-  workflow_run:
-    workflows:
-      - "Copy Code to Target Repository"
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   copy-code:
@@ -19,6 +23,6 @@ jobs:
 
       - name: Copy Code to Target Location
         run: |
-          cp -r vijaykumar-jampana/EDP/DBS/** vijaykumar-jampana/EDP_UAT/DBS/
+          cp -r vijaykumar-jampana/EDP/ vijaykumar-jampana/EDP_UAT/
           # Replace "path/to/source/files" with the actual path to the files you want to copy from the source repository
           # Replace "target-path/" with the desired path in the current repository to copy the files to
