@@ -1,28 +1,22 @@
 name: Copy Code from Source Repository
 
-# on:
-#   workflow_run:
-#     workflows:
-#       - "Copy Code to Target Repository"
-#     types:
-#       - completed
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows:
+      - "Copy Code to Target Repository"
+    types:
+      - completed
 
 jobs:
   copy-code:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Source Repository
-        uses: actions/checkout@v2
+      - name: Download Code Artifact
+        uses: actions/download-artifact@v2
         with:
-          repository: vijaykumar-jampana/EDP
-          ref: ${{ github.event.workflow_run.head_commit.id }}
+          name: code-artifact
+          path: vijaykumar-jampana/EDP/DBS  # Specify the directory to download the artifact
 
       - name: Copy Code to Target Location
         run: |
-          cp -r DBS/** EDP_UAT/DBS
-          # Replace "path/to/source/files" with the actual path to the files you want to copy from the source repository
-          # Replace "target-path/" with the desired path in the current repository to copy the files to
+          cp -r vijaykumar-jampana/EDP/DBS vijaykumar-jampana/EDP_UAT/
