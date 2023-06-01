@@ -18,11 +18,11 @@ jobs:
       - name: Checkout Source Repository
         uses: actions/checkout@v2
         with:
-          repository: vijaykumar-jampana/EDP/DBS
+          repository: vijaykumar-jampana/EDP/
           ref: ${{ github.event.workflow_run.head_commit.id }}
 
       - name: Copy Code to Target Location
         run: |
-          cp -r vijaykumar-jampana/EDP/ vijaykumar-jampana/EDP_UAT/
+          cp -r vijaykumar-jampana/EDP/DBS/** vijaykumar-jampana/EDP_UAT/DBS/
           # Replace "path/to/source/files" with the actual path to the files you want to copy from the source repository
           # Replace "target-path/" with the desired path in the current repository to copy the files to
