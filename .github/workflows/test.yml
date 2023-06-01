@@ -1,5 +1,4 @@
-name: test repo-repo copy
-
+name: Copy Code from Source Repository
 
 on:
   push:
@@ -7,15 +6,16 @@ on:
       - main
 
 jobs:
-  copy-code:
+  copy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Repository
         uses: actions/checkout@v2
         with:
-          repository: vijaykumar-jampana/EDP
-          ref: ${{ github.event.workflow_run.head_commit.id }}
+          repository: vijaykumar-jampana/EDP  # Replace with the correct owner and repository name of the source repository
 
-      - name: Copy Code to Target Location
+      - name: Copy Code to Destination Repositories
         run: |
-          cp -r DBS/** vijaykumar-jampana/EDP_UAT
+          for repo in vijaykumar-jampana/EDP_UAT; do
+            cp -r DBS/** $repo
+          done
