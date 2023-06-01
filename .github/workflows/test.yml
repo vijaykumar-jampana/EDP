@@ -16,6 +16,6 @@ jobs:
 
       - name: Copy Code to Destination Repositories
         run: |
-          for repo in EDP_UAT; do
+          for repo in vijaykumar-jampana/EDP_UAT; do
             cp -r DBS/** $repo
           done
