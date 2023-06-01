@@ -15,10 +15,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: code-artifact
-          path: source-code  # Specify the directory to download the artifact
+          path: EDP/DBS  # Specify the directory to download the artifact
 
       - name: Copy Code to Target Location
         run: |
-          cp -r source-code/. target-path/
+          cp -r EDP/DBS EDP_UAT/
           # Replace "source-code/." with the path to the downloaded code artifact
           # Replace "target-path/" with the desired path in the current repository to copy the code to
