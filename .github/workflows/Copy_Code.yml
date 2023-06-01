@@ -1,0 +1,18 @@
+name: Copy Code from Repository
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copy-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
+        with:
+          repository: vijaykumar-jampana/EDP        
+          ref: main  # Specify the branch or commit you want to copy from
+
+      - name: Copy Code
+        run: |
+          cp -r EDP/DBS EDP_UAT/
