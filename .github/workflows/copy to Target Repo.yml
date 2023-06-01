@@ -16,4 +16,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code-artifact
-          path: EDP/DBS  # Replace with the actual path to the code you want to copy
+          path: EDP/DBS/**  # Replace with the actual path to the code you want to copy
