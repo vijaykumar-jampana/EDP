@@ -15,4 +15,4 @@ jobs:
 
       - name: Copy Code
         run: |
-          cp -r vijaykumar-jampana/EDP/DBS vijaykumar-jampana/EDP_UAT/
+          cp -r DBS/ EDP_UAT/
