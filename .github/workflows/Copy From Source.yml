@@ -1,0 +1,24 @@
+name: Copy Code from Source Repository
+
+on:
+  workflow_run:
+    workflows:
+      - "Copy Code to Target Repository"
+    types:
+      - completed
+
+jobs:
+  copy-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Code Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: code-artifact
+          path: source-code  # Specify the directory to download the artifact
+
+      - name: Copy Code to Target Location
+        run: |
+          cp -r source-code/. target-path/
+          # Replace "source-code/." with the path to the downloaded code artifact
+          # Replace "target-path/" with the desired path in the current repository to copy the code to
