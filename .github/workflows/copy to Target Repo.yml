@@ -1,0 +1,19 @@
+name: Copy Code to Target Repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
+
+      - name: Package Code as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-artifact
+          path: .  # Replace with the actual path to the code you want to copy
