@@ -11,14 +11,14 @@ jobs:
   copy-code:
     runs-on: ubuntu-latest
     steps:
-      - name: Download Code Artifact
-        uses: actions/download-artifact@v2
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
         with:
-          name: code-artifact
-          path: DBS/  # Specify the directory to download the artifact
+          repository: vijaykumar-jampana/EDP/DBS
+          ref: ${{ github.event.workflow_run.head_commit.id }}
 
       - name: Copy Code to Target Location
         run: |
-          cp -r EDP/DBS EDP_UAT/
-          # Replace "source-code/." with the path to the downloaded code artifact
-          # Replace "target-path/" with the desired path in the current repository to copy the code to
+          cp -r vijaykumar-jampana/EDP/DBS/** vijaykumar-jampana/EDP_UAT/DBS/
+          # Replace "path/to/source/files" with the actual path to the files you want to copy from the source repository
+          # Replace "target-path/" with the desired path in the current repository to copy the files to
