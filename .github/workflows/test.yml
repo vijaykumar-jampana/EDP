@@ -1,1 +1,21 @@
+name: test repo-repo copy
 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
+        with:
+          repository: vijaykumar-jampana/EDP
+          ref: ${{ github.event.workflow_run.head_commit.id }}
+
+      - name: Copy Code to Target Location
+        run: |
+          cp -r DBS/** EDP_UAT/DBS
