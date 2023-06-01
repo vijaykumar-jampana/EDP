@@ -1,11 +1,9 @@
-name: Copy Code to Target Repository
 
-# on:
-#   push:
-#     branches:
-#       - main
+
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   copy-code:
@@ -13,9 +11,10 @@ jobs:
     steps:
       - name: Checkout Source Repository
         uses: actions/checkout@v2
-
-      - name: Package Code as Artifact
-        uses: actions/upload-artifact@v2
         with:
-          name: code-artifact
-          path: DBS/**  # Replace with the actual path to the code you want to copy
+          repository: vijaykumar-jampana/EDP
+          ref: main
+
+      - name: Copy Code to Target Location
+        run: |
+          cp -r DBS/** EDP_UAT/DBS
