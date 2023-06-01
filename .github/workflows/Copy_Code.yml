@@ -1,4 +1,4 @@
-name: Copy Code from Repository
+name: Copy Code same repo
 
 on:
   workflow_dispatch:
