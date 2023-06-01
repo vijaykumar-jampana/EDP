@@ -23,6 +23,6 @@ jobs:
 
       - name: Copy Code to Target Location
         run: |
-          cp -r EDP/DBS vijaykumar-jampana/EDP_UAT/DBS
+          cp -r DBS/** vijaykumar-jampana/EDP_UAT/DBS
           # Replace "path/to/source/files" with the actual path to the files you want to copy from the source repository
           # Replace "target-path/" with the desired path in the current repository to copy the files to
