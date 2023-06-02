@@ -18,7 +18,7 @@ jobs:
           cp -R ./DBS/. Target/
           cd Target
           git config --local user.email "vijjulearn@gmail.com"
-          git config --local user.name "vijaykumar-jampana"
+          git config --local user.name "VijayKumar.Jampana"
           git add .
           git commit -m "Copy code from source repository"
           git push origin main
