@@ -14,4 +14,4 @@ jobs:
           repository: vijaykumar-jampana/EDP
 
       - run: |
-          cp -r EDP/DBS vijaykumar-jampana/EDP_UAT
+          cp -r DBS/ vijaykumar-jampana/EDP_UAT
