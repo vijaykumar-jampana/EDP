@@ -13,3 +13,4 @@ jobs:
         run: |
           echo "Env_name: ${{vars.ENV_NAME}}"
           echo "Org_Name: ${{vars.ORG_NAME}}"
+          echo $GITHUB_USERNAME
