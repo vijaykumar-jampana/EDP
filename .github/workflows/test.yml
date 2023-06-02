@@ -15,8 +15,8 @@ jobs:
       - name: Copy Code to Target Repository
         run: |
           git clone --depth 1 --branch main 'https://github.com/vijaykumar-jampana/EDP_UAT.git' Target
-          cp -R ./DBS/. ./Target/
-          cd target
+          cp -R ./DBS/. Target/
+          cd Target
           git config --local user.email "vijjulearn@gmail.com"
           git config --local user.name "vijaykumar-jampana"
           git add .
