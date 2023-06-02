@@ -2,16 +2,22 @@ name: Test Copy Code
 on:
   push:
     branches:
-      - main
+      - main  # Replace with your desired branch
 
 jobs:
   copy-code:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: vijaykumar-jampana/EDP
+      - name: Checkout Source Repository
+        uses: actions/checkout@v2
 
-      - run: |
-          cp -r DBS/ vijaykumar-jampana/EDP_UAT
+      - name: Copy Code to Target Repository
+        run: |
+          git clone --depth 1 --branch main 'https://github.com/vijaykumar-jampana/EDP_UAT.git' target
+          cp -R ./DBS/. ./target/
+          cd target
+          git add .
+          git commit -m "Copy code from source repository"
+          git push origin main
+
