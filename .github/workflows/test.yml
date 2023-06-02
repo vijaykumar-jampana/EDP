@@ -1,4 +1,4 @@
-name: Copy Code from Source Repository
+name: Test Copy Code 
 
 on:
   push:
