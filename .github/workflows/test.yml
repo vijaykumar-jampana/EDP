@@ -1,8 +1,8 @@
-name: Test Copy Code 
+name: Test Copy Code
 on:
   push:
     branches:
-      - main  # Replace with your desired branch
+      - main
 
 jobs:
   copy-code:
@@ -14,10 +14,11 @@ jobs:
 
       - name: Copy Code to Target Repository
         run: |
-          git clone --depth 1 --branch main 'https://github.com/vijaykumar-jampana/EDP_UAT.git' target
-          cp -R ./DBS/. ./target/
+          git clone --depth 1 --branch main 'https://github.com/vijaykumar-jampana/EDP_UAT.git' Target
+          cp -R ./DBS/. ./Target/
           cd target
+          git config --local user.email "vijjulearn@gmail.com"
+          git config --local user.name "vijaykumar-jampana"
           git add .
           git commit -m "Copy code from source repository"
           git push origin main
-
