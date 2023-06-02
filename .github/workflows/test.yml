@@ -1,21 +1,17 @@
 name: Test Copy Code 
-
 on:
   push:
     branches:
       - main
 
 jobs:
-  copy:
+  copy-code:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Source Repository
-        uses: actions/checkout@v2
-        with:
-          repository: vijaykumar-jampana/EDP  # Replace with the correct owner and repository name of the source repository
 
-      - name: Copy Code to Destination Repositories
-        run: |
-          for repo in vijaykumar-jampana/EDP_UAT; do
-            cp -r $GITHUB_WORKSPACE/. $repo
-          done
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: vijaykumar-jampana/EDP
+
+      - run: |
+          cp -r EDP/DBS vijaykumar-jampana/EDP_UAT
