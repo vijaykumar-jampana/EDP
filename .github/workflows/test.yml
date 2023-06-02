@@ -19,7 +19,7 @@ jobs:
           cd Target
           git config --local user.email "vijjulearn@gmail.com"
           git config --local user.name "VijayKumar.Jampana"
-          git config --local credential.helper "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"
+          git config --local credential.helper '!f() { echo "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"; }; f' 
           git add .
           git commit -m "Copy code from source repository"
           git push origin main
