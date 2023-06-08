@@ -9,18 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Repository
-        uses: actions/checkout@v2
+      - name: Set up Python and install Databricks CLI
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Install Databricks CLI
+        run: pip install databricks-cli
 
-      - name: Copy Code to Target Repository
-        run: |
-          git clone --depth 1 --branch main 'https://github.com/vijaykumar-jampana/EDP_UAT.git' Target
-          cp -R ./DBS/. Target/
-          cd Target
-          git config --local user.email "vijjulearn@gmail.com"
-          git config --local user.name "vijaykumar-jampana"
-          # git config --local credential.helper '!f() { echo "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"; }; f'
-          git config --local credential.helper '!echo "username=vijaykumar-jampana\npassword=${{secrets.SECRET_TOKEN}}"'
-          git add .
-          git commit -m "Copy code from source repository"
-          git push origin main
